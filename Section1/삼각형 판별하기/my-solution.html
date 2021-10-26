@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = 'YES';
+        let input = [a, b, c];
+        let inputLength = input.length;
+        let longest = input[0];
+        let longestIndex = 0;
+
+        for (let i = 0; i < inputLength; i++) {
+          if (longest < input[i]) {
+            longest = input[i];
+            longestIndex = i;
+          }
+        }
+
+        let otherSum = 0;
+
+        for (let i = 0; i < inputLength; i++) {
+          if (i === longestIndex) {
+            continue;
+          }
+
+          otherSum += input[i];
+        }
+
+        if (longest >= otherSum) {
+          answer = 'NO';
+        }
+
+        return answer;
+      }
+
+      console.log(solution(6, 7, 11));
+    </script>
+  </body>
+</html>
