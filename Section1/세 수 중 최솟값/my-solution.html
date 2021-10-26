@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer;
+        let input = [a, b, c];
+        let inputLength = input.length;
+
+        answer = input[0];
+
+        for (let i = 0; i < inputLength; i++) {
+          if (input[i] < answer) {
+            answer = input[i];
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(2, 5, 1));
+    </script>
+  </body>
+</html>
