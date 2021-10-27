@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let sum = 0;
+
+        for (x of arr) {
+          sum += x;
+        }
+
+        let arrLength = arr.length;
+
+        for (let i = 1; i < arrLength; i++) {
+          for (let j = 0; j < i; j++) {
+            if (sum - arr[i] - arr[j] === 100) {
+              arr.splice(i, 1);
+              arr.splice(j, 1);
+
+              answer = arr;
+
+              return answer;
+            }
+          }
+        }
+      }
+
+      arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
