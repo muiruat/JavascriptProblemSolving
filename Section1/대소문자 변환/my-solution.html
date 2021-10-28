@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = str
+          .split('')
+          .map((x) => {
+            const n = x.charCodeAt();
+
+            if (n >= 65 && n <= 90) {
+              return String.fromCharCode(n + 32);
+            } else {
+              return String.fromCharCode(n - 32);
+            }
+          })
+          .join('');
+
+        return answer;
+      }
+
+      let str = 'StuDY';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
