@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = str
+          .split('')
+          .map((x) => {
+            const n = x.charCodeAt();
+
+            if (n >= 97 && n <= 122) {
+              return x.toUpperCase();
+            }
+
+            return x;
+          })
+          .join('');
+
+        return answer;
+      }
+
+      let str = 'ItisTimeToStudy';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
