@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str, char) {
+        let answer = str.split('').filter((x) => {
+          return x === char;
+        }).length;
+
+        return answer;
+      }
+
+      str = 'COMPUTERPROGRAMMING';
+      char = 'R';
+      console.log(solution(str, char));
+    </script>
+  </body>
+</html>
