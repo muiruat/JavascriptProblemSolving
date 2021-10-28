@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        const upperList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+        let answer = 0;
+
+        for (x of str) {
+          if (upperList.includes(x)) {
+            answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      str = 'KoreaTimeGood';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

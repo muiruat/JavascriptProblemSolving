@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = 0;
+
+        for (x of str) {
+          const n = x.charCodeAt();
+
+          if (n >= 65 && n <= 90) {
+            answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      str = 'KoreaTimeGood';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
