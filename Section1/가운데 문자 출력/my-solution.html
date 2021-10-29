@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer;
+        let length = str.length;
+
+        if (length % 2 === 0) {
+          answer = str
+            .split('')
+            .splice(length / 2 - 1, length / 2)
+            .join('');
+        } else {
+          answer = str.split('')[(length - 1) / 2];
+        }
+
+        return answer;
+      }
+      let str = 'study';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
