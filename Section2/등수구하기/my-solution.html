@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let unsortedArr = arr.slice();
+        let answer = new Array(arr.length);
+
+        arr.sort((a, b) => b - a);
+
+        let tempScore = arr[0];
+        let tempIndex = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === tempScore) {
+          } else {
+            tempScore = arr[i];
+            tempIndex = i;
+          }
+
+          for (let j = 0; j < unsortedArr.length; j++) {
+            if (arr[i] === unsortedArr[j]) {
+              answer[j] = tempIndex + 1;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      //const arr = [87, 89, 92, 100, 76];
+      const arr = [92, 92, 85, 92];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
