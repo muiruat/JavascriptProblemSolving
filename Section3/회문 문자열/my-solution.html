@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let n = str.length;
+        let answer = 'YES';
+
+        for (let i = 0; i < n; i++) {
+          if (str[i].toUpperCase() !== str[n - i - 1].toUpperCase()) {
+            answer = 'NO';
+            break;
+          }
+        }
+
+        return answer;
+      }
+
+      str = 'gooG';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
