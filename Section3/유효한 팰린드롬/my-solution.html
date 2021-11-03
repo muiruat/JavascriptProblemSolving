@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = 'YES';
+        const filteredStr = str
+          .split('')
+          .filter((x) => {
+            const n = x.charCodeAt();
+
+            return (n >= 65 && n <= 90) || (n >= 97 && n <= 122);
+          })
+          .join('')
+          .toLowerCase();
+
+        let n = filteredStr.length;
+
+        for (let i = 0; i < Math.floor(n / 2); i++) {
+          if (filteredStr[i] !== filteredStr[n - i - 1]) {
+            answer = 'NO';
+            break;
+          }
+        }
+
+        return answer;
+      }
+
+      str = 'found7, time: study; Yduts; emit, 7Dnuof';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
