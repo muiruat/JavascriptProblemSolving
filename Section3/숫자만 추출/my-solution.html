@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = str
+          .split('')
+          .filter((x) => {
+            const n = x.charCodeAt();
+
+            if (n >= 48 && n <= 57) {
+              return true;
+            } else {
+              return false;
+            }
+          })
+          .filter((x, i) => {
+            if (i === 0 && x === '0') {
+              return false;
+            } else {
+              return true;
+            }
+          })
+          .join('');
+
+        return answer;
+      }
+
+      str = 'g0en2T0s8eSoft';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
