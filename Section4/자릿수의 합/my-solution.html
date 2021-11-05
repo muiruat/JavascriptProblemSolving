@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr[0];
+        let index = 0;
+        let answerSum = 0;
+
+        let t = arr[0];
+
+        while (t !== 0) {
+          answerSum += t % 10;
+          t = Math.floor(t / 10);
+        }
+
+        for (let i = 1; i < arr.length; i++) {
+          let temp = arr[i];
+          let sum = 0;
+
+          while (temp !== 0) {
+            sum += temp % 10;
+            temp = Math.floor(temp / 10);
+          }
+
+          if (sum >= answerSum && arr[i] > arr[index]) {
+            answer = arr[i];
+            index = i;
+          }
+        }
+
+        return answer;
+      }
+
+      const arr = [128, 460, 603, 40, 521, 137, 123];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
