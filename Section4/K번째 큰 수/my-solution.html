@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, k, arr) {
+        let answer = 0;
+        let sarr = [];
+
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (i === j) {
+              continue;
+            }
+
+            for (let k = 0; k < n; k++) {
+              if (i === k || j === k) {
+                continue;
+              }
+
+              sarr.push(arr[i] + arr[j] + arr[k]);
+            }
+          }
+        }
+
+        sarr.sort((a, b) => b - a);
+
+        for (let i = 0; i < sarr.length; i++) {
+          if (k === 1) {
+            answer = sarr[i];
+            break;
+          } else {
+            if (sarr[i] === sarr[i + 1]) {
+              continue;
+            } else {
+              k--;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      const n = 10;
+      const k = 3;
+      const arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+
+      console.log(solution(n, k, arr));
+    </script>
+  </body>
+</html>
