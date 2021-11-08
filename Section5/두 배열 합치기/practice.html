@@ -7,16 +7,24 @@
     <script>
       function solution(n, m, arr1, arr2) {
         let answer = [];
+        let i = 0;
+        let j = 0;
 
-        for (let x of arr1) {
-          answer.push(x);
+        while (i < n && j < m) {
+          if (arr1[i] <= arr2[j]) {
+            answer.push(arr1[i++]);
+          } else {
+            answer.push(arr2[j++]);
+          }
         }
 
-        for (let x of arr2) {
-          answer.push(x);
+        while (i < n) {
+          answer.push(arr1[i++]);
         }
 
-        answer.sort((a, b) => a - b);
+        while (j < m) {
+          answer.push(arr2[j++]);
+        }
 
         return answer;
       }
