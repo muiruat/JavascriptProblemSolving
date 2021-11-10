@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m, arr) {
+        let answer = 0;
+        let l = 0;
+        let r = m - 1;
+        let sum = 0;
+
+        while (r < n) {
+          for (let i = l; i <= r; i++) {
+            sum += arr[i];
+          }
+
+          if (answer < sum) {
+            answer = sum;
+          }
+
+          sum = 0;
+          r++;
+          l++;
+        }
+
+        return answer;
+      }
+
+      const n = 10;
+      const m = 3;
+      const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+
+      console.log(solution(n, m, arr));
+    </script>
+  </body>
+</html>
