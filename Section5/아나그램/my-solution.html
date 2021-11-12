@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str1, str2) {
+        let answer;
+
+        const map1 = new Map();
+        const map2 = new Map();
+
+        for (let x of str1) {
+          if (map1.has(x)) {
+            map1.set(x, map1.get(x) + 1);
+          } else {
+            map1.set(x, 1);
+          }
+        }
+
+        for (let x of str2) {
+          if (map2.has(x)) {
+            map2.set(x, map2.get(x) + 1);
+          } else {
+            map2.set(x, 1);
+          }
+        }
+
+        if (map1 == map2) {
+          answer = 'YES';
+        } else {
+          answer = 'NO';
+        }
+
+        let flag = true;
+
+        for (let [key, value] of map1) {
+          if (map2.get(key) !== value) {
+            flag = false;
+          }
+        }
+
+        if (flag) {
+          answer = 'YES';
+        } else {
+          answer = 'NO';
+        }
+
+        return answer;
+      }
+
+      //   const str1 = 'AbaAeCe';
+      //   const str2 = 'baeeACA';
+
+      const str1 = 'abaCC';
+      const str2 = 'Caaab';
+
+      console.log(solution(str1, str2));
+    </script>
+  </body>
+</html>
