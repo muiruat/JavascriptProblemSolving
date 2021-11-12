@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, str) {
+        let answer = 'A';
+        let temp = 0;
+
+        const obj = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        const keys = ['A', 'B', 'C', 'D', 'E'];
+
+        str.split('').forEach((x) => {
+          obj[x]++;
+        });
+
+        for (let i = 0; i < keys.length; i++) {
+          if (obj[keys[i]] > temp) {
+            temp = obj[keys[i]];
+            answer = keys[i];
+          }
+        }
+
+        return answer;
+      }
+
+      const n = 15;
+      const str = 'BACBACCACCBDEDE';
+
+      console.log(solution(n, str));
+    </script>
+  </body>
+</html>
