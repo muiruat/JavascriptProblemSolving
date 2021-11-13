@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function compareMap(map1, map2) {
+        if (map1.length !== map2.length) {
+          return false;
+        }
+
+        for (let [key, value] of map1) {
+          if (!map2.has(key) || map2.get(key) !== value) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function solution(str1, str2) {
+        let answer = 0;
+
+        const map1 = new Map();
+        const map2 = new Map();
+
+        for (let x of str2) {
+          if (map2.has(x)) {
+            map2.set(x, map2.get(x) + 1);
+          } else {
+            map2.set(x, 1);
+          }
+        }
+
+        for (let i = 0; i < str2.length - 1; i++) {
+          if (map1.has(str1[i])) {
+            map1.set(str1[i], map1.get(str1[i]) + 1);
+          } else {
+            map1.set(str1[i], 1);
+          }
+        }
+
+        let l = 0;
+
+        for (let r = str2.length - 1; r < str1.length; r++) {
+          if (map1.has(str1[r])) {
+            map1.set(str1[r], map1.get(str1[r]) + 1);
+          } else {
+            map1.set(str1[r], 1);
+          }
+
+          if (compareMap(map1, map2)) {
+            answer++;
+          }
+
+          map1.set(str1[l], map1.get(str1[l]) - 1);
+
+          if (map1.get(str1[l]) === 0) {
+            map1.delete(str1[l]);
+          }
+
+          l++;
+        }
+
+        return answer;
+      }
+
+      const str1 = 'bacaAacba';
+      const str2 = 'abc';
+
+      console.log(solution(str1, str2));
+    </script>
+  </body>
+</html>
