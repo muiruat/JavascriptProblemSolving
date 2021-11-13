@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        const stack = [];
+        const temp = str.split('');
+
+        for (let i = 0; i < temp.length; i++) {
+          if (temp[i] === '(') {
+            stack.push(0);
+          } else {
+            const result = stack.pop();
+
+            if (result === undefined) {
+              return 'NO';
+            }
+          }
+        }
+
+        if (stack.length !== 0) {
+          return 'NO';
+        }
+
+        return 'YES';
+      }
+
+      //   const str = '(())()';
+      //   const str = '(()()))';
+      const str = '(()(()))(()';
+
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
