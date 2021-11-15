@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, k) {
+        let answer;
+
+        const arr = Array.from({ length: n }, (x, i) => i + 1);
+
+        let index = k - 1;
+
+        while (arr.length != 1) {
+          arr.splice(index, 1);
+
+          index += k - 1;
+
+          if (index > arr.length - 1) {
+            index %= arr.length;
+          }
+        }
+
+        answer = arr[0];
+
+        return answer;
+      }
+
+      const n = 8;
+      const k = 3;
+
+      console.log(solution(n, k));
+    </script>
+  </body>
+</html>
