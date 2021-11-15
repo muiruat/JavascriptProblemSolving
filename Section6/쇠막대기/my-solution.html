@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = 0;
+
+        const stack = [];
+
+        for (let x of str) {
+          if (x === '(') {
+            stack.push(x);
+          } else {
+            stack.pop();
+
+            answer += stack.length;
+          }
+        }
+
+        return answer;
+      }
+
+      //   const str = '()(((()())(())()))(())';
+      const str = '(((()(()()))(())()))(()())';
+
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
