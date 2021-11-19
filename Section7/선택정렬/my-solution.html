@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer;
+
+        for (let i = 0; i < n; i++) {
+          let min = arr[i];
+          let minIndex = i;
+
+          for (let j = i; j < n; j++) {
+            if (arr[j] < min) {
+              min = arr[j];
+              minIndex = j;
+            }
+          }
+
+          let temp = arr[i];
+
+          arr[i] = arr[minIndex];
+          arr[minIndex] = temp;
+        }
+
+        answer = arr;
+
+        return answer;
+      }
+
+      const n = 6;
+      const arr = [13, 5, 11, 7, 23, 15];
+
+      console.log(solution(n, arr));
+    </script>
+  </body>
+</html>
