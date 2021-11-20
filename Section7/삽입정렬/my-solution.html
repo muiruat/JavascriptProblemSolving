@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        for (let i = 1; i < n; i++) {
+          for (let j = 0; j < i; j++) {
+            if (arr[i] < arr[j]) {
+              const temp = arr.splice(i, 1)[0];
+              arr.splice(j, 0, temp);
+            }
+          }
+        }
+
+        return arr;
+      }
+
+      const n = 6;
+      const arr = [11, 7, 5, 6, 10, 9];
+
+      console.log(solution(n, arr));
+    </script>
+  </body>
+</html>
