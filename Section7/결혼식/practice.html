@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        const list = [];
+
+        for (let x of arr) {
+          list.push([x[0], 'start']);
+          list.push([x[1], 'end']);
+        }
+
+        list.sort((a, b) => {
+          if (a[0] !== b[0]) {
+            return a[0] - b[0];
+          } else {
+            return a[1].charCodeAt() - b[1].charCodeAt();
+          }
+        });
+
+        let answer = 0;
+        let count = 0;
+
+        for (let x of list) {
+          if (x[1] === 'start') {
+            count++;
+          } else {
+            count--;
+          }
+
+          if (count > answer) {
+            answer = count;
+          }
+        }
+
+        return answer;
+      }
+
+      const n = 5;
+      const arr = [
+        [14, 18],
+        [12, 15],
+        [15, 20],
+        [20, 30],
+        [5, 14],
+      ];
+
+      console.log(solution(n, arr));
+    </script>
+  </body>
+</html>
