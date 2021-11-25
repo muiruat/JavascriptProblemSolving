@@ -21,13 +21,11 @@
 
       function solution(n, c, arr) {
         let answer;
-        let l;
-        let r;
 
         arr.sort((a, b) => a - b);
 
-        l = 1;
-        r = arr[n - 1];
+        let l = 1;
+        let r = arr[n - 1];
 
         while (l <= r) {
           let mid = parseInt((l + r) / 2);
