@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function call(now, n) {
+        if (now > n) {
+          return;
+        }
+
+        console.log(now);
+
+        call(now + 1, n);
+      }
+
+      function solution(n) {
+        call(1, n);
+      }
+
+      const n = 3;
+
+      solution(n);
+    </script>
+  </body>
+</html>
