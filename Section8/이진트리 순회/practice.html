@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = '';
+
+        function DFS(m) {
+          if (m > n) {
+            return;
+          }
+
+          // 전위순회 출력
+          //   answer += m + ' ';
+
+          DFS(2 * m);
+
+          // 중위순회 출력
+          //   answer += m + ' ';
+
+          DFS(2 * m + 1);
+
+          // 후위순회 출력
+          answer += m + ' ';
+        }
+
+        DFS(1);
+
+        return answer;
+      }
+
+      const n = 7;
+
+      console.log(solution(n));
+    </script>
+  </body>
+</html>
